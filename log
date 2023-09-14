@@ -36,3 +36,14 @@ treemap.c:41:14: error: unused variable ‘map’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 bfcc15b
+Thu 14 Sep 2023 07:36:42 PM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘createTreeMap’:
+treemap.c:41:14: error: unused variable ‘map’ [-Werror=unused-variable]
+   41 |     TreeMap* map = (TreeMap *)malloc(sizeof(lower_than));
+      |              ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+a38bc50
