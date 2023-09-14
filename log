@@ -22,3 +22,17 @@ treemap.c:43:18: error: returning ‘int’ from a function with return type ‘
 cc1: all warnings being treated as errors
 Compilation failed
 63fbd7a
+Thu 14 Sep 2023 07:25:51 PM UTC: 
+ treemap.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘createTreeMap’:
+treemap.c:41:20: error: expected expression before ‘TreeMap’
+   41 |     TreeMap* map = TreeMap(lower_than);
+      |                    ^~~~~~~
+treemap.c:41:14: error: unused variable ‘map’ [-Werror=unused-variable]
+   41 |     TreeMap* map = TreeMap(lower_than);
+      |              ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+bfcc15b
