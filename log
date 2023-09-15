@@ -229,3 +229,30 @@ treemap.c:53:15: error: unused variable ‘parent’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 79eb4ed
+Fri 15 Sep 2023 11:52:36 PM UTC: 
+ treemap.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:60:16: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+   60 |         return NULL;
+      |                ^~~~
+treemap.c:50:6: note: declared here
+   50 | void insertTreeMap(TreeMap * tree, void* key, void * value) {
+      |      ^~~~~~~~~~~~~
+treemap.c:69:11: error: expected ‘}’ before ‘else’
+   69 |           else
+      |           ^~~~
+treemap.c:54:9: error: unused variable ‘aux’ [-Werror=unused-variable]
+   54 |     int aux = 0;
+      |         ^~~
+treemap.c:53:15: error: variable ‘parent’ set but not used [-Werror=unused-but-set-variable]
+   53 |     TreeNode* parent = NULL;
+      |               ^~~~~~
+treemap.c: At top level:
+treemap.c:77:1: error: expected identifier or ‘(’ before ‘}’ token
+   77 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+a0dfb22
