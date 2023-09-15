@@ -66,10 +66,10 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
         if (compare == 0)
         {
           current = current->left;
+        }
           else
         {
           current = current -> right;
-        }
         }
       }
     }
