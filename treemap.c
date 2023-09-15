@@ -57,7 +57,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     {
       if (is_equal(tree, current->pair->key, key))
       {
-        return NULL;
+        return;
       }
       else
       {
