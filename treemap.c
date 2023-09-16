@@ -105,7 +105,32 @@ if (tree==NULL || node == NULL)
     }
     free(node);
   }
+
+  else
+  {
+    if (node->right == NULL || node->left == NULL)
+    {
+      TreeNode* child;
+      if (node->right !=  NULL)
+      {
+        child = node->right
+      }
+      else
+      {
+       child = node->left;
+      }
+      child->parent = node -> parent;
+    }
+    else
+    {
+     tree->root = child;
+      child->parent = NULL;
+    }
+    free(node);
+  }
 }
+
+
 
 void eraseTreeMap(TreeMap * tree, void* key){
     if (tree == NULL || tree->root == NULL) return;
