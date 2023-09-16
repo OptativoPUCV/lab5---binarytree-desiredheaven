@@ -132,7 +132,7 @@ else
   {
     TreeNode* minimumNum = minimum(node->right);
     void* auxValue = node->pair->value;
-    void auxKey = node->pair-key;
+    void* auxKey = node->pair-key;
     node->pair->value = minimumNum->pair->value;
     node->pair->key = minimumNum->pair->key;
     minimumNum ->pair->value = auxValue;
