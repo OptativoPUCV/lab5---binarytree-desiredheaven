@@ -174,7 +174,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
       {
         tree->current = tree->current->left;
       }
-      else
+      els
       {
         tree->current = tree->current->right;
       }
@@ -249,4 +249,4 @@ Pair * nextTreeMap(TreeMap * tree) {
     } else {
         return NULL; 
     }
-
+}
