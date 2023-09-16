@@ -425,3 +425,24 @@ Sat 16 Sep 2023 12:29:56 AM UTC:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 790029a
+Sat 16 Sep 2023 12:30:16 AM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c:107:2: error: data definition has no type or storage class [-Werror]
+  107 | }free(node);
+      |  ^~~~
+treemap.c:107:2: error: type defaults to ‘int’ in declaration of ‘free’ [-Werror=implicit-int]
+treemap.c:107:1: error: parameter names (without types) in function declaration [-Werror]
+  107 | }free(node);
+      | ^
+treemap.c:107:2: error: conflicting types for ‘free’; have ‘int()’
+  107 | }free(node);
+      |  ^~~~
+In file included from test.c:2:
+/nix/store/4pqv2mwdn88h7xvsm7a5zplrd8sxzvw0-glibc-2.35-163-dev/include/stdlib.h:555:13: note: previous declaration of ‘free’ with type ‘void(void *)’
+  555 | extern void free (void *__ptr) __THROW;
+      |             ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+72febd7

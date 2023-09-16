@@ -103,8 +103,8 @@ if (tree==NULL || node == NULL)
     {  
      tree->root = NULL; 
     }
-  }free(node);
-}
+  }
+}free(node);
 
 void eraseTreeMap(TreeMap * tree, void* key){
     if (tree == NULL || tree->root == NULL) return;
