@@ -226,5 +226,27 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-    return NULL;
+    if (tree == NULL || tree->current == NULL)return NULL; 
+    
+    TreeNode* currentNode = tree->current;
+    if (currentNode->right != NULL) {
+        TreeNode* nodoMinimo = minimum(currentNode->right);
+        if (nodoMinimo != NULL) {
+            tree->current = nodoMinimo;
+            return nodoMinimo->pair; 
+        }
+    }
+
+    TreeNode* parentNode = currentNode->parent;
+    while (parentNode != NULL && currentNode == parentNode->right) {
+        currentNode = parentNode;
+        parentNode = parentNode->parent;
+    }
+
+    if (parentNode != NULL) {
+        tree->current = parentNode;
+        return parentNode->pair; 
+    } else {
+        return NULL; 
+    }
 }
