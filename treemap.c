@@ -212,7 +212,17 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 
 Pair * firstTreeMap(TreeMap * tree) {
-    return NULL;
+    if (tree == NULL || tree->root == NULL)return NULL; 
+
+    TreeNode* nodoMinimo = minimum(tree->root);
+
+    if (nodoMinimo != NULL) {
+        tree->current = nodoMinimo;
+        return nodoMinimo->pair;
+    } else {
+        return NULL;
+    }
+
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
