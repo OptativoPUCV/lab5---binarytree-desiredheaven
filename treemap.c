@@ -123,10 +123,22 @@ if (tree==NULL || node == NULL)
     }
     else
     {
-     tree->root = child;
+      tree->root = child;
       child->parent = NULL;
     }
     free(node);
+  }
+else
+  {
+    TreeNode* minimumNum = minimum(node->right);
+    void* auxValue = node->pair->value;
+    void auxKey = node->pair-key;
+    node->pair->value = minimumNum->pair->value;
+    node->pair->key = minimumNum->pair->key;
+    minimumNum ->pair->value = auxValue;
+    minimun ->pair->key = auxKey;
+
+    removeNode(tree, minimumNum);
   }
 }
 
