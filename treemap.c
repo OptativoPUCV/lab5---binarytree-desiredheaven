@@ -136,7 +136,7 @@ else
     node->pair->value = minimumNum->pair->value;
     node->pair->key = minimumNum->pair->key;
     minimumNum ->pair->value = auxValue;
-    minimun ->pair->key = auxKey;
+    minimumNum ->pair->key = auxKey;
 
     removeNode(tree, minimumNum);
   }

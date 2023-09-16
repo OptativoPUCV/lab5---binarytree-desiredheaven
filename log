@@ -527,3 +527,21 @@ treemap.c:139:5: error: ‘minimun’ undeclared (first use in this function); d
       |     minimum
 Compilation failed
 d054c11
+Sat 16 Sep 2023 01:20:37 AM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:126:20: error: ‘child’ undeclared (first use in this function)
+  126 |       tree->root = child;
+      |                    ^~~~~
+treemap.c:126:20: note: each undeclared identifier is reported only once for each function it appears in
+treemap.c:131:1: error: ‘else’ without a previous ‘if’
+  131 | else
+      | ^~~~
+treemap.c:135:31: error: ‘key’ undeclared (first use in this function); did you mean ‘key_t’?
+  135 |     void* auxKey = node->pair-key;
+      |                               ^~~
+      |                               key_t
+Compilation failed
+6c0ba90
