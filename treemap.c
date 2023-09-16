@@ -113,7 +113,7 @@ if (tree==NULL || node == NULL)
       TreeNode* child;
       if (node->right !=  NULL)
       {
-        child = node->right
+        child = node->right;
       }
       else
       {
