@@ -98,58 +98,55 @@ TreeNode * minimum(TreeNode * x){
 }
 
 
-void removeNode(TreeMap *tree, TreeNode* node) 
-{
-  if (tree == NULL || node == NULL)
-    return;
+void removeNode(TreeMap * tree, TreeNode* node) {
+    if (tree == NULL || node == NULL)return; 
 
-  if (node->right == NULL && node->left == NULL)
-  {
-    if (node->parent != NULL)
-    {
-      if (node->parent->left == node)
-        node->parent->left = NULL;
-      else
-        node->parent->right = NULL;
+    // Caso 1: nodo sin hijos
+    if (node->left == NULL && node->right == NULL) {
+        if (node->parent != NULL) {
+            if (node->parent->left == node) {
+                node->parent->left = NULL;
+            } else {
+                node->parent->right = NULL;
+            }
+        } else {
+            tree->root = NULL;
+        }
+        free(node);
     }
-    else
-    {
-      tree->root = NULL; 
-    }
-    free(node);
-  }
 
-    
-  else
-  {
-    if (node->left == NULL || node->left == NULL)
-    {
-      TreeNode* child;
-      if (node->left !=  NULL)
-      {
-        child = node->left;
-      }
-      else
-      {
-        child = node->right;
-      }
-      
-      if (child != NULL)
-        child->parent = node->parent;
-    }
-    else
-    {
-      TreeNode* minimumNum = minimum(node->right);
-      void* auxValue = node->pair->value;
-      void* auxKey = node->pair->key;
-      node->pair->value = minimumNum->pair->value;
-      node->pair->key = minimumNum->pair->key;
-      minimumNum->pair->value = auxValue;
-      minimumNum->pair->key = auxKey;
 
-      removeNode(tree, minimumNum);
+    else if (node->left == NULL || node->right == NULL) {
+        TreeNode* child;
+        if (node->left != NULL)child = node->left;
+        else child = node->right;
+
+        if (node->parent != NULL) {
+            if (node->parent->left == node) {
+                node->parent->left = child;
+            } else {
+                node->parent->right = child;
+            }
+            child->parent = node->parent;
+        } else {
+            tree->root = child;
+            child->parent = NULL;
+        }
+        free(node);
     }
-  }
+
+
+    else {
+        TreeNode* minRight = minimum(node->right); 
+        void* tempKey = node->pair->key;
+        void* tempValue = node->pair->value;
+        node->pair->key = minRight->pair->key;
+        node->pair->value = minRight->pair->value;
+        minRight->pair->key = tempKey;
+        minRight->pair->value = tempValue;
+
+        removeNode(tree, minRight);
+    }
 }
 
 
